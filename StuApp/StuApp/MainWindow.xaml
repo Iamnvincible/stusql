@@ -7,6 +7,83 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <ListView Name="allstudent">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="学号" Width="auto" DisplayMemberBinding="{Binding Number,Mode=OneWay}"/>
+                        <GridViewColumn Header="姓名" Width="auto" DisplayMemberBinding="{Binding Name,Mode=OneWay}"/>
+                        <GridViewColumn Header="班级" Width="auto" DisplayMemberBinding="{Binding ClassNum,Mode=OneWay}"/>
+                        <GridViewColumn Header="专业" Width="auto" DisplayMemberBinding="{Binding Subject,Mode=OneWay}"/>
+                        <GridViewColumn Header="性别" Width="auto" DisplayMemberBinding="{Binding Sex,Mode=OneWay}"/>
+                    </GridView>
+                </ListView.View>
+                <!--<ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{Binding Number,Mode=OneWay}" Width="100"></TextBlock>
+                            <TextBlock Grid.Column="1" Text="{Binding Name,Mode=OneWay}"></TextBlock>
+                            <TextBlock Grid.Column="2" Text="{Binding ClassNum,Mode=OneWay}"></TextBlock>
+                            <TextBlock Grid.Column="3" Text="{Binding Subject,Mode=OneWay}"></TextBlock>
+                            <TextBlock Grid.Column="4" Text="{Binding Sex,Mode=OneWay}"></TextBlock>
+                        </Grid>
+                        -->
+                <!--<StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
+                        <TextBlock  Text="{Binding Number,Mode=OneWay}"></TextBlock>
+                        <TextBlock  Text="{Binding Name,Mode=OneWay}"></TextBlock>
+                        <TextBlock  Text="{Binding ClassNum,Mode=OneWay}"></TextBlock>
+                        <TextBlock  Text="{Binding Subject,Mode=OneWay}"></TextBlock>
+                        <TextBlock  Text="{Binding Sex,Mode=OneWay}"></TextBlock>
+                    </StackPanel>-->
+                <!--
+                    </DataTemplate>
+                </ListView.ItemTemplate>-->
+            </ListView>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0">
+                    <Button Content="载入名单" Height="30" Width="100" Click="Button_Click"></Button>
+                    <Button Content="随机抽取" Height="30" Width="100" Margin="10" Click="Button_Click_1"></Button>
+                </StackPanel>
+                <Grid Grid.Row="1">
+                    <StackPanel>
+
+                        <Slider x:Name="slider" TickFrequency="1" TickPlacement="Both" IsSnapToTickEnabled="True" Minimum="0" Maximum="{Binding Items.Count, ElementName=allstudent, Mode=OneWay}"/>
+                        <TextBlock Text="{Binding Value, ElementName=slider}" HorizontalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            <ListView Grid.Row="1" Name="random">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="学号" Width="auto" DisplayMemberBinding="{Binding Number,Mode=OneWay}"/>
+                        <GridViewColumn Header="姓名" Width="auto" DisplayMemberBinding="{Binding Name,Mode=OneWay}"/>
+                        <GridViewColumn Header="班级" Width="auto" DisplayMemberBinding="{Binding ClassNum,Mode=OneWay}"/>
+                        <GridViewColumn Header="专业" Width="auto" DisplayMemberBinding="{Binding Subject,Mode=OneWay}"/>
+                        <GridViewColumn Header="性别" Width="auto" DisplayMemberBinding="{Binding Sex,Mode=OneWay}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
     </Grid>
 </Window>
