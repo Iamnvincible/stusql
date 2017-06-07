@@ -23,6 +23,7 @@ namespace StuApp
         public MainWindow()
         {
             InitializeComponent();
+            //test
         }
     }
 }
