@@ -46,7 +46,7 @@ namespace StuWeb.Controllers
                     for (int i = 1; i <= count; i++)
                     {
                         int index = r.Next(1, db.Count());
-                        se.Add(db[index]);
+                        se.Add(db[index-1]);
                         db.RemoveAt(index - 1);
                     }
                     ViewData["status"] = $"{count}/{sum}ÈË";
