@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StuApp", "StuApp\StuApp.csproj", "{CC59589D-F224-4E09-9552-FD5CE6B03B62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StuWeb", "StuWeb\StuWeb.csproj", "{D55D4AB2-E83A-485B-9DEB-8B5EC3C92AE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{CC59589D-F224-4E09-9552-FD5CE6B03B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC59589D-F224-4E09-9552-FD5CE6B03B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC59589D-F224-4E09-9552-FD5CE6B03B62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D55D4AB2-E83A-485B-9DEB-8B5EC3C92AE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D55D4AB2-E83A-485B-9DEB-8B5EC3C92AE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D55D4AB2-E83A-485B-9DEB-8B5EC3C92AE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D55D4AB2-E83A-485B-9DEB-8B5EC3C92AE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
