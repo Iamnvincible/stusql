@@ -35,7 +35,7 @@ namespace StuApp
             RandomStudents = new ObservableCollection<Student>();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             //Task.Run(() =>
             //{
@@ -46,40 +46,44 @@ namespace StuApp
             //    allstudent.ItemsSource = Students;
 
             //}));
-            LoadData();
+            await LoadData();
             allstudent.ItemsSource = Students;
             random.ItemsSource = RandomStudents;
         }
-        void LoadData()
+        async Task LoadData()
         {
             try
             {
-                string sql = "SELECT * FROM student";
-                {
-                    string currentpath = Environment.CurrentDirectory+"\\student.db";
-                    using (SQLiteConnection conn = new SQLiteConnection($"Data Source={currentpath}"))
-                    {
-                        using (SQLiteDataAdapter ap = new SQLiteDataAdapter(sql, conn))
-                        {
-                            DataSet ds = new DataSet();
-                            ap.Fill(ds);
-                            DataTable da = ds.Tables[0];
-                            for (int i = 0; i < da.Rows.Count; i++)
-                            {
-                                var row = da.Rows[i].ItemArray;
-                                var st = new Student()
-                                {
-                                    Number = Convert.ToInt32(row[0].ToString()),
-                                    Name = row[1].ToString(),
-                                    ClassNum = row[2].ToString(),
-                                    Subject = row[3].ToString(),
-                                    Sex = row[4].ToString()
-                                };
-                                Students.Add(st);
-                            }
-                        }
-                    }
-                }
+                SqlConnect sql = new SqlConnect();
+                await sql.Connect();
+                Students = new ObservableCollection<Student>(await sql.Query());
+
+                //string sql = "SELECT * FROM student";
+                //{
+                //    string currentpath = Environment.CurrentDirectory+"\\student.db";
+                //    using (SQLiteConnection conn = new SQLiteConnection($"Data Source={currentpath}"))
+                //    {
+                //        using (SQLiteDataAdapter ap = new SQLiteDataAdapter(sql, conn))
+                //        {
+                //            DataSet ds = new DataSet();
+                //            ap.Fill(ds);
+                //            DataTable da = ds.Tables[0];
+                //            for (int i = 0; i < da.Rows.Count; i++)
+                //            {
+                //                var row = da.Rows[i].ItemArray;
+                //                var st = new Student()
+                //                {
+                //                    Number = Convert.ToInt32(row[0].ToString()),
+                //                    Name = row[1].ToString(),
+                //                    ClassNum = row[2].ToString(),
+                //                    Subject = row[3].ToString(),
+                //                    Sex = row[4].ToString()
+                //                };
+                //                Students.Add(st);
+                //            }
+                //        }
+                //    }
+                //}
             }
             catch (Exception e)
             {
